@@ -10,8 +10,23 @@ export class AppComponent {
   public todos: Todo[] = [];
   public title: string = 'Minhas tarefas';
   constructor() {
-    this.todos.push(new Todo(1,'Estudar pelo menos 2h por dia todo dia da semana',false) );
-    this.todos.push(new Todo(2,'Ir para a academia pelo menos 4x na semana',false) );
-    this.todos.push(new Todo(3,'Jogar pelo menos um pouco todo dia ',false) );
+    this.todos.push(
+      new Todo(1, 'Estudar pelo menos 2h por dia todo dia da semana', false)
+    );
+    this.todos.push(
+      new Todo(2, 'Ir para a academia pelo menos 4x na semana', false)
+    );
+    this.todos.push(new Todo(3, 'Jogar pelo menos um pouco todo dia ', false));
+  }
+
+  remove(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    if (index != -1) this.todos.splice(index, 1);
+  }
+  markAsDone(todo: Todo) {
+    todo.done = true;
+  }
+  markAsUndone(todo: Todo) {
+    todo.done = false;
   }
 }
